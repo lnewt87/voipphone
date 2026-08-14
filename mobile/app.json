@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "CallDesk",
+    "slug": "calldesk-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.portfolio.calldesk",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "CallDesk uses your microphone for voice calls.",
+        "UIBackgroundModes": [
+          "audio",
+          "voip"
+        ]
+      },
+      "entitlements": {
+        "aps-environment": "development"
+      }
+    },
+    "android": {
+      "package": "com.portfolio.calldesk",
+      "permissions": [
+        "RECORD_AUDIO",
+        "POST_NOTIFICATIONS",
+        "BLUETOOTH_CONNECT"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
