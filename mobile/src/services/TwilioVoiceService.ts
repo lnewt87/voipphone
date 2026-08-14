@@ -71,7 +71,15 @@ class TwilioVoiceService {
 
       this.voice.on('error', (error: unknown) => this.emitError(error));
 
-      await this.voice.register(this.currentToken);
+      // Registration is only needed for incoming-call push notifications.
+      // Outgoing calls can still use Voice.connect() without a successful register().
+      // Do not force the whole app into Demo Mode if push registration is not configured yet.
+      try {
+        await this.voice.register(this.currentToken);
+      } catch (registrationError) {
+        console.warn('Twilio incoming-call registration skipped:', registrationError);
+      }
+
       return { live: true };
     } catch (error) {
       this.emitError(error);

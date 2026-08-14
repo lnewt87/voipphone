@@ -33,7 +33,7 @@ const keypad = [
   ['#', ''],
 ];
 
-const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL ?? '';
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL ?? 'https://voipphone-production.up.railway.app';
 const IDENTITY = process.env.EXPO_PUBLIC_TWILIO_IDENTITY ?? 'mobile_user';
 
 const formatDuration = (seconds: number) => {
